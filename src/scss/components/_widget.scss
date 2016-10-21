@@ -1,0 +1,30 @@
+.md-widget {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+  border-radius: 2px;
+  background-color: #fff;
+  box-shadow: $z-level-1;
+}
+
+.md-widget__body {
+  padding: 15px;
+}
+.md-widget__header {
+  height: 48px;
+  padding: 15px;
+  border-bottom: 1px solid #e7eaec;
+}
+.md-widget__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 16px;
+  font-weight: 400;
+}
+.md-widget__footer {
+  padding: 15px;
+  background-color: #FAFAFA;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}

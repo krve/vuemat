@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>VueJS Material</title>
+
+        <link rel="stylesheet" href="https://cdn.cloudcache.dk/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../dist/css/app.css">
+    </head>
+    <body>
+        <div class="container" id="app">
+            <h1 class="text-center">VueJS Material Components</h1>
+            <div class="row">
+
+                <div class="col-md-12">
+                    <h2 id="buttons">Buttons</h2>
+                    <p>
+                        <md-btn class="md-flat">
+                            Button
+                        </md-btn>
+                        <md-btn class="md-flat md-primary">Primary</md-btn>
+                        <md-btn class="md-flat md-success">Success</md-btn>
+                        <md-btn class="md-flat md-warning">Warning</md-btn>
+                        <md-btn class="md-flat md-danger">Danger</md-btn>
+                        <md-btn class="md-flat" disabled>Disabled</md-btn>
+                    </p>
+                    <p>
+                        <md-btn>Button</md-btn>
+                        <md-btn class="md-primary">Primary</md-btn>
+                        <md-btn class="md-success">Success</md-btn>
+                        <md-btn class="md-warning">Warning</md-btn>
+                        <md-btn class="md-danger">Danger</md-btn>
+                        <md-btn disabled>Disabled</md-btn>
+                    </p>
+                    <p>
+                        <md-btn>Default</md-btn>
+                        <md-btn class="md-primary">Primary</md-btn>
+                        <md-btn class="md-success">Success</md-btn>
+                        <md-btn class="md-warning" icon="error_outline">Warning</md-btn>
+                        <md-btn class="md-danger" icon="delete" icon-right>Danger</md-btn>
+                        <md-btn disabled>Disabled</md-btn>
+                    </p>
+                    <p>
+                        <md-btn class="md-large">Default</md-btn>
+                        <md-btn class="md-primary md-large">Primary</md-btn>
+                        <md-btn class="md-success md-large">Success</md-btn>
+                        <md-btn class="md-warning md-large" icon="error_outline">Warning</md-btn>
+                        <md-btn class="md-danger md-large" icon="delete" icon-right>Danger</md-btn>
+                        <md-btn class="md-large" disabled>Disabled</md-btn>
+                    </p>
+                </div>
+                <div class="col-md-12">
+                    <h2 id="chips">Chips</h2>
+                    <md-chip>
+                        <img src="images/chip.jpg" alt="Contact Person">
+                        Chips for everyone!
+                    </md-chip>
+                    <md-chip closeable>
+                        Closeable
+                    </md-chip>
+                </div>
+                <div class="col-md-12">
+                    <h2 id="widgets">Widgets</h2>
+                    <md-widget title="Widget Title">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem voluptate ipsa quasi harum. Explicabo nostrum rem repellat, labore fuga. Dolor unde, a maiores nemo inventore quae. Asperiores beatae rem ad.</p>
+                        <h3>Header</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat doloribus praesentium tempore molestias magnam vitae, repellendus necessitatibus distinctio fugit doloremque harum qui reprehenderit quasi, facilis, sequi tempora, natus ducimus hic.</p>
+                        <div slot="footer" class="right">
+                            <md-btn class="md-danger md-flat">Delete</md-btn>
+                            <md-btn class="md-primary md-flat">Action</md-btn>
+                        </div>
+                    </md-widget>
+                </div>
+                <div class="col-md-12">
+                    <h2>Alert</h2>
+                    <md-alert class="md-primary">Primary Alert</md-alert>
+                    <md-alert class="md-success">Success Alert</md-alert>
+                    <md-alert class="md-warning" closeable>Warning Alert</md-alert>
+                    <md-alert class="md-danger" closeable>Danger Alert</md-alert>
+                </div>
+                <div class="col-md-12">
+                    <h2 id="forms">Forms</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <md-input name="first_name" id="first_name" placeholder="First Name" required>First Name</md-input>
+                        </div>
+                        <div class="col-md-6">
+                            <md-input name="last_name" id="last_name" required>Last Name</md-input>
+                        </div>
+                        <div class="col-md-2">
+                            <md-input name="zipcode" id="zipcode" value="7780">Zipcode</md-input>
+                        </div>
+                        <div class="col-md-2">
+                            <md-input name="city" id="city">City</md-input>
+                        </div>
+                        <div class="col-md-2">
+                            <md-input name="disabled" id="disabled" disabled>Disabled</md-input>
+                        </div>
+                        <div class="col-md-3">
+                            <md-radio name="sex" value="male">Male Dinosaur</md-radio>
+                            <md-radio name="sex" value="female" checked>Female Hawk</md-radio>
+                        </div>
+                        <div class="col-md-3">
+                            <md-checkbox name="javascript_known" checked>NPM Master</md-checkbox>
+                            <md-checkbox name="donkey" value="4">Professional Donkey</md-checkbox>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <h2 id="tooltips">Tooltips</h2>
+                    <md-btn class="md-primary">
+                        <md-tooltip>I'm a tooltip</md-tooltip>
+                        Left
+                    </md-btn>
+                    <md-btn class="md-primary">
+                        <md-tooltip direction="top">
+                            <md-icon>delete</md-icon>I have an icon!
+                        </md-tooltip>
+                        Top
+                    </md-btn>
+                    <md-btn class="md-primary">
+                        <md-tooltip direction="bottom">I dont.. :(</md-tooltip>
+                        Bottom
+                    </md-btn>
+                    <md-btn class="md-primary">
+                        <md-tooltip direction="right">Back on track!</md-tooltip>
+                        Right
+                    </md-btn>
+                </div>
+                <div class="col-md-12">
+                    <h2 id="selects">Selects</h2>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <md-select name="user" label="Select users">
+                                <option value="1">John Anderson</option>
+                                <option value="2">Morten Lund</option>
+                                <option value="3">Henrik Sørensen</option>
+                                <option value="4">Jason the Samurai</option>
+                            </md-select>
+                        </div>
+                        <div class="col-md-3">
+                            <md-select name="robots[]" label="Select multiple robots" placeholder="Choose your robots.." multiple>
+                                <option value="1">Mr. Anderson</option>
+                                <option value="2">Peter Parker</option>
+                                <option value="3">Alliston Stone</option>
+                                <option value="4">Mikael Emmerson</option>
+                            </md-select>
+                        </div>
+                        <div class="col-md-3">
+                            <md-select name="pizza" label="Select your pizza">
+                                <optgroup label="Meat">
+                                    <option value="1">Meat Lover</option>
+                                    <option value="2">Pork'n Bacon</option>
+                                </optgroup>
+                                <optgroup label="Vegetarian">
+                                    <option value="3">Salad Pizza</option>
+                                    <option value="4">Greenfield</option>
+                                </optgroup>
+                            </md-select>
+                        </div>
+                        <div class="col-md-3">
+                            <md-select name="pizzas[]" label="Select your pizza" placeholder="Select pizzas" multiple>
+                                <optgroup label="Meat">
+                                    <option value="1">Meat Lover</option>
+                                    <option value="2">Pork'n Bacon</option>
+                                </optgroup>
+                                <optgroup label="Vegetarian">
+                                    <option value="3">Salad Pizza</option>
+                                    <option value="4">Greenfield</option>
+                                </optgroup>
+                            </md-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <h2 id="dropdowns">Dropdowns</h2>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <md-dropdown title="I'll sleep when I'm dead">
+                                <md-dropdown-item>
+                                    My eyes are stapled opened wide.
+                                </md-dropdown-item>
+                                <md-dropdown-item>
+                                    As I focus on the clock.
+                                </md-dropdown-item>
+                                <md-dropdown-item href="#!">
+                                    Times stand still but I cannot.
+                                </md-dropdown-item>
+                            </md-dropdown>
+                        </div>
+                        <div class="col-md-3">
+                            <md-dropdown title="Is it true what they say">
+                                <div class="md-dropdown-item">
+                                    Custom div (with correct class)
+                                </div>
+                                <md-dropdown-item>
+                                    Mixed!
+                                </md-dropdown-item>
+                            </md-dropdown>
+                        </div>
+                        <div class="col-md-3">
+                            <md-dropdown>
+                                <div slot="button">
+                                    <md-button class="md-success md-block">Custom Button!</md-button>
+                                </div>
+                                <md-dropdown-item>
+                                    La De Dee Lala De Du
+                                </md-dropdown-item>
+                            </md-dropdown>
+                        </div>
+                        <div class="col-md-3">
+                            <md-dropdown title="Groups!">
+                                <md-dropdown-group label="Group #1">
+                                    <md-dropdown-item>My eyes are stapled opened wide.</md-dropdown-item>
+                                    <md-dropdown-item>As I focus on the clock.</md-dropdown-item>
+                                </md-dropdown-group>
+                                <md-dropdown-group label="Group #2">
+                                    <md-dropdown-item>My eyes are stapled opened wide.</md-dropdown-item>
+                                    <md-dropdown-item>As I focus on the clock.</md-dropdown-item>
+                                </md-dropdown-group>
+                                <md-dropdown-item>Free floater</md-dropdown-item>
+                                <md-dropdown-item>Free floater bro</md-dropdown-item>
+                            </md-dropdown>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <h2 id="cards">Cards</h2>
+                    <div class="row" style="margin-bottom: 30px;">
+                        <div class="col-md-4">
+                            <md-card>
+                                <h3>Card Title</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolor ea in itaque laboriosam magnam magni maiores natus nihil obcaecati odio perferendis porro, quae quaerat quam rerum, sapiente soluta velit.</p>
+                            </md-card>
+                        </div>
+                        <div class="col-md-4">
+                            <md-card image="images/card.png">
+                                <h3>Card with image</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid asperiores assumenda beatae commodi cupiditate debitis, inventore iusto laudantium minima modi nihil provident, quo ratione repudiandae, saepe sapiente tempore vitae?</p>
+                            </md-card>
+                        </div>
+                        <div class="col-md-4">
+                            <md-card image-link="https://vuejs.org" image="images/card.png">
+                                <h3>Footer and image link</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi asperiores consequuntur eligendi error esse.</p>
+                                <div class="md-card-footer">
+                                    <md-btn class="md-primary">Read More</md-btn>
+                                </div>
+                            </md-card>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 30px;">
+                        <div class="col-md-4">
+                            <md-card class="text-center" avatar="images/profile1.jpg" image="images/profile_background1.jpg">
+                                <h3>Maria Kate</h3>
+                                <p>Photographer</p>
+                                <md-btn class="md-flat md-primary">Read More</md-btn>
+                            </md-card>
+                        </div>
+                        <div class="col-md-4">
+                            <md-card class="text-center" avatar="images/profile2.jpg" image="images/profile_background2.jpg">
+                                <h3>Anna Deynah</h3>
+                                <p>Web Designer</p>
+                                <md-btn class="md-flat md-primary">Read More</md-btn>
+                            </md-card>
+                        </div>
+                        <div class="col-md-4">
+                            <md-card class="text-center" avatar="images/profile3.jpg" image="images/profile_background3.jpg">
+                                <h3>Sarah Melyah</h3>
+                                <p>Front-end Developer</p>
+                                <md-btn class="md-flat md-primary">Read More</md-btn>
+                            </md-card>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <md-card class="text-center" image-link="javascript:;" image="images/product1.jpg">
+                                <p>Shoes</p>
+                                <h3><a href="#">Product name</a></h3>
+                                <ul class="rating">
+                                    <li><md-icon>star</md-icon></li>
+                                    <li><md-icon>star</md-icon></li>
+                                    <li><md-icon>star</md-icon></li>
+                                    <li><md-icon>star_border</md-icon></li>
+                                    <li><md-icon>star_border</md-icon></li>
+                                </ul>
+                                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates.</p>
+                                <div class="md-card-footer text-left">
+                                    <h3 class="no-margin font-regular">
+                                        49$
+                                        <span class="font-strike"><small>149$</small></span>
+                                    </h3>
+                                    <div class="md-card-icons">
+                                        <a href="javascript:;">
+                                            <md-tooltip direction="top">Add to Cart</md-tooltip>
+                                            <md-icon>shopping_cart</md-icon>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <md-tooltip direction="top">Add to Wishlist</md-tooltip>
+                                            <md-icon>favorite</md-icon>
+                                        </a>
+                                    </div>
+                                </div>
+                            </md-card>
+                        </div>
+                        <div class="col-md-4">
+                            <md-card class="text-center" image-link="javascript:;" image="images/product2.jpg">
+                                <p>Category</p>
+                                <h3><a href="#">Product name</a></h3>
+                                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates.</p>
+                                <div class="md-card-footer text-left">
+                                    <h3 class="no-margin font-regular">29$</h3>
+                                    <div class="md-card-icons">
+                                        <a href="javascript:;">
+                                            <md-tooltip direction="top">Share</md-tooltip>
+                                            <md-icon>share</md-icon>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <md-tooltip direction="top">Add to Wishlist</md-tooltip>
+                                            <md-icon>favorite</md-icon>
+                                        </a>
+                                    </div>
+                                </div>
+                            </md-card>
+                        </div>
+                        <div class="col-md-4">
+                            <md-card class="text-center" image-link="javascript:;" image="images/product3.jpg">
+                                <p>Category</p>
+                                <h3><a href="#">Product name</a></h3>
+                                <ul class="rating">
+                                    <li><md-icon>star</md-icon></li>
+                                    <li><md-icon>star</md-icon></li>
+                                    <li><md-icon>star</md-icon></li>
+                                    <li><md-icon>star</md-icon></li>
+                                    <li><md-icon>star_half</md-icon></li>
+                                </ul>
+                                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates.</p>
+                                <div class="md-card-footer text-left">
+                                    <h3 class="no-margin font-regular">79$</h3>
+                                    <div class="md-card-icons">
+                                        <a href="javascript:;">
+                                            <md-tooltip direction="top">Add to Wishlist</md-tooltip>
+                                            <md-icon>favorite</md-icon>
+                                        </a>
+                                    </div>
+                                </div>
+                            </md-card>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <h2 id="datepicker">Datepicker</h2>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <md-datepicker name="publish_date">Publish Date</md-datepicker>
+                        </div>
+                        <div class="col-md-3">
+                            <md-datepicker name="callback_date" format="d/m/Y" date="2016-05-17">Predefined Date</md-datepicker>
+                        </div>
+                        <div class="col-md-3">
+                            <md-datepicker name="publish_time" time>Date & Time</md-datepicker>
+                        </div>
+                        <div class="col-md-3">
+                            <md-datepicker name="min_max_date" min-date="2016-10-01" max-date="2016-11-30">Min & Max Date</md-datepicker>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <h2 id="modals">Modals</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <md-button class="md-primary md-block" @click.native="openModal('modalone')">Open Modal</md-button>
+                            <md-modal ref="modalone">Testing!</md-modal>
+                        </div>
+                        <div class="col-md-4">
+                            <md-button class="md-primary md-block" @click.native="openModal('modaltwo')">Open Modal</md-button>
+                            <md-modal title="My Custom Title" ref="modaltwo">Testing!</md-modal>
+                        </div>
+                        <div class="col-md-4">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="../dist/js/app.js"></script>
+    </body>
+</html>

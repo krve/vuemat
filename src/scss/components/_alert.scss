@@ -1,0 +1,28 @@
+.md-alert {
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 2px;
+
+  &.md-primary {
+    background-color: $primary-color;
+    color: #fff;
+  }
+  &.md-success {
+    background-color: $success-color;
+    color: #fff;
+  }
+  &.md-warning {
+    background-color: $warning-color;
+    color: #fff;
+  }
+  &.md-danger {
+    background-color: $danger-color;
+    color: #fff;
+  }
+  .material-icons {
+    float: right;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

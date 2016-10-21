@@ -1,0 +1,28 @@
+.md-select-wrapper {
+  position: relative;
+  margin-bottom: 15px;
+  select {
+    display: none;
+  }
+}
+.md-select-label {
+  font-weight: 300;
+  font-size: 14px;
+
+  pointer-events: none;
+  transition: .2s ease;
+}
+.md-select-toggle {
+  padding: 5px 0 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  cursor: pointer;
+}
+.md-select-toggle:after {
+  position: relative;
+  top: 5px;
+  content: "▼";
+  display: inline-block;
+  float: right;
+  font-size: 10px;
+}
