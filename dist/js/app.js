@@ -9197,7 +9197,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/directives/Ripple.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/directives/Ripple.vue"
 
 	/* hot reload */
 	if (false) {(function () {
@@ -9206,9 +9206,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-5776cb9b", __vue_options__)
+	    hotAPI.createRecord("data-v-5730acc0", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-5776cb9b", __vue_options__)
+	    hotAPI.reload("data-v-5730acc0", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Ripple.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -9275,7 +9275,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Btn.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Btn.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -9286,9 +9286,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-56392013", __vue_options__)
+	    hotAPI.createRecord("data-v-7946590e", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-56392013", __vue_options__)
+	    hotAPI.reload("data-v-7946590e", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Btn.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -9357,7 +9357,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-56392013", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-7946590e", module.exports)
 	  }
 	}
 
@@ -9383,7 +9383,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Icon.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Icon.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -9394,9 +9394,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-6c399d5c", __vue_options__)
+	    hotAPI.createRecord("data-v-087d17b7", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-6c399d5c", __vue_options__)
+	    hotAPI.reload("data-v-087d17b7", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Icon.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -9452,7 +9452,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-6c399d5c", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-087d17b7", module.exports)
 	  }
 	}
 
@@ -9478,7 +9478,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Chip.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Chip.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -9489,9 +9489,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-58fa67a5", __vue_options__)
+	    hotAPI.createRecord("data-v-d0d763ec", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-58fa67a5", __vue_options__)
+	    hotAPI.reload("data-v-d0d763ec", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Chip.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -9554,7 +9554,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-58fa67a5", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-d0d763ec", module.exports)
 	  }
 	}
 
@@ -9580,7 +9580,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Widget.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Widget.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -9591,9 +9591,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-2820c55d", __vue_options__)
+	    hotAPI.createRecord("data-v-27daa682", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-2820c55d", __vue_options__)
+	    hotAPI.reload("data-v-27daa682", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Widget.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -9655,7 +9655,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-2820c55d", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-27daa682", module.exports)
 	  }
 	}
 
@@ -9681,7 +9681,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Alert.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Alert.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -9692,9 +9692,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-70d8df53", __vue_options__)
+	    hotAPI.createRecord("data-v-057bc58e", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-70d8df53", __vue_options__)
+	    hotAPI.reload("data-v-057bc58e", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Alert.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -9760,7 +9760,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-70d8df53", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-057bc58e", module.exports)
 	  }
 	}
 
@@ -9786,7 +9786,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Input.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Input.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -9797,9 +9797,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-2dc1c6c1", __vue_options__)
+	    hotAPI.createRecord("data-v-7b36a608", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-2dc1c6c1", __vue_options__)
+	    hotAPI.reload("data-v-7b36a608", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Input.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -9929,7 +9929,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-2dc1c6c1", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-7b36a608", module.exports)
 	  }
 	}
 
@@ -9955,7 +9955,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Radio.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Radio.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -9966,9 +9966,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-e3a1fb1c", __vue_options__)
+	    hotAPI.createRecord("data-v-22d1e8ad", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-e3a1fb1c", __vue_options__)
+	    hotAPI.reload("data-v-22d1e8ad", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Radio.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -10087,7 +10087,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-e3a1fb1c", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-22d1e8ad", module.exports)
 	  }
 	}
 
@@ -10113,7 +10113,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Checkbox.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Checkbox.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -10124,9 +10124,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-3d75131c", __vue_options__)
+	    hotAPI.createRecord("data-v-363b3f01", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-3d75131c", __vue_options__)
+	    hotAPI.reload("data-v-363b3f01", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Checkbox.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -10238,7 +10238,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-3d75131c", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-363b3f01", module.exports)
 	  }
 	}
 
@@ -10264,7 +10264,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Button.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Button.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -10275,9 +10275,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-4fcf6b4b", __vue_options__)
+	    hotAPI.createRecord("data-v-4f894c70", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-4fcf6b4b", __vue_options__)
+	    hotAPI.reload("data-v-4f894c70", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Button.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -10346,7 +10346,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-4fcf6b4b", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-4f894c70", module.exports)
 	  }
 	}
 
@@ -10372,7 +10372,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Tooltip.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Tooltip.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -10383,9 +10383,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-47929eba", __vue_options__)
+	    hotAPI.createRecord("data-v-3f14e235", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-47929eba", __vue_options__)
+	    hotAPI.reload("data-v-3f14e235", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Tooltip.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -10497,7 +10497,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-47929eba", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-3f14e235", module.exports)
 	  }
 	}
 
@@ -10523,7 +10523,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Card.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Card.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -10534,9 +10534,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-153d672e", __vue_options__)
+	    hotAPI.createRecord("data-v-33fb32ce", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-153d672e", __vue_options__)
+	    hotAPI.reload("data-v-33fb32ce", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Card.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -10620,7 +10620,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-153d672e", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-33fb32ce", module.exports)
 	  }
 	}
 
@@ -10646,7 +10646,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Dropdown.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Dropdown.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -10657,9 +10657,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-0e10646a", __vue_options__)
+	    hotAPI.createRecord("data-v-06d6904f", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-0e10646a", __vue_options__)
+	    hotAPI.reload("data-v-06d6904f", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Dropdown.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -10768,7 +10768,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-0e10646a", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-06d6904f", module.exports)
 	  }
 	}
 
@@ -10794,7 +10794,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/DropdownItem.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/DropdownItem.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -10805,9 +10805,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-7d41491d", __vue_options__)
+	    hotAPI.createRecord("data-v-0d94fa82", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-7d41491d", __vue_options__)
+	    hotAPI.reload("data-v-0d94fa82", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] DropdownItem.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -10857,7 +10857,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-7d41491d", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-0d94fa82", module.exports)
 	  }
 	}
 
@@ -10883,7 +10883,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/DropdownGroup.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/DropdownGroup.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -10894,9 +10894,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-54c312e5", __vue_options__)
+	    hotAPI.createRecord("data-v-6234e3c0", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-54c312e5", __vue_options__)
+	    hotAPI.reload("data-v-6234e3c0", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] DropdownGroup.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -10945,7 +10945,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-54c312e5", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-6234e3c0", module.exports)
 	  }
 	}
 
@@ -10971,7 +10971,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Select.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Select.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -10982,9 +10982,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-5086f7d6", __vue_options__)
+	    hotAPI.createRecord("data-v-5113358c", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-5086f7d6", __vue_options__)
+	    hotAPI.reload("data-v-5113358c", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Select.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -11317,7 +11317,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-5086f7d6", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-5113358c", module.exports)
 	  }
 	}
 
@@ -11343,7 +11343,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Datepicker.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Datepicker.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -11354,9 +11354,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-5088c455", __vue_options__)
+	    hotAPI.createRecord("data-v-30738afa", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-5088c455", __vue_options__)
+	    hotAPI.reload("data-v-30738afa", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Datepicker.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -12919,7 +12919,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-5088c455", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-30738afa", module.exports)
 	  }
 	}
 
@@ -12945,7 +12945,7 @@
 	if (typeof __vue_options__ === "function") {
 	  __vue_options__ = __vue_options__.options
 	}
-	__vue_options__.__file = "/home/zerathul/Web/valet/vueterial/src/js/components/Modal.vue"
+	__vue_options__.__file = "/home/zerathul/Web/valet/vuemat/src/js/components/Modal.vue"
 	__vue_options__.render = __vue_template__.render
 	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
 
@@ -12956,9 +12956,9 @@
 	  if (!hotAPI.compatible) return
 	  module.hot.accept()
 	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-49584024", __vue_options__)
+	    hotAPI.createRecord("data-v-4409b342", __vue_options__)
 	  } else {
-	    hotAPI.reload("data-v-49584024", __vue_options__)
+	    hotAPI.reload("data-v-4409b342", __vue_options__)
 	  }
 	})()}
 	if (__vue_options__.functional) {console.error("[vue-loader] Modal.vue: functional components are not supported and should be defined in plain js files using render functions.")}
@@ -13050,7 +13050,7 @@
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
-	     require("vue-hot-reload-api").rerender("data-v-49584024", module.exports)
+	     require("vue-hot-reload-api").rerender("data-v-4409b342", module.exports)
 	  }
 	}
 
