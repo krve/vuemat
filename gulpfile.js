@@ -34,7 +34,7 @@ gulp.task('serve', ['js', 'scss'], function() {
 
     browserSync.init({
         server: {
-            baseDir: "./demo"
+            baseDir: "./dist"
 
         },
         notify: false
