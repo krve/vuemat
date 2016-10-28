@@ -40,9 +40,9 @@ gulp.task('serve', ['js', 'scss'], function() {
         notify: false
     });
 
-    gulp.watch('js/**/*.js', ['js-watch']);
-    gulp.watch('scss/**/*.scss', ['scss-watch']);
-    gulp.watch('*.html').on('change', reload);
+    gulp.watch(['./src/js/**/*.js', './src/js/**/*.vue'], ['js-watch']);
+    gulp.watch('./src/scss/**/*.scss', ['scss-watch']);
+    gulp.watch('dist/*.html').on('change', reload);
 });
 
 

@@ -1,5 +1,5 @@
 <template>
-    <a class="md-btn" :class="{disabled: disabled}" v-ripple>
+    <a class="md-button" :class="{disabled: disabled}" v-ripple>
         <md-icon v-if="icon" :right="iconRight" :left="!iconRight">
             {{ icon }}
         </md-icon>

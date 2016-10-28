@@ -4,7 +4,7 @@
   overflow: hidden;
   border-radius: 4px;
   font-weight: 500;
-  background-color: #171717;
+  background-color: #212121;
   color: #fff;
   padding: 5px;
   max-width: 250px;
@@ -12,5 +12,8 @@
 
   .md-icon {
     font-size: 12px;
+    line-height: inherit;
+    width: auto;
+    height: auto;
   }
 }

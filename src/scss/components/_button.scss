@@ -1,4 +1,4 @@
-.md-btn {
+.md-button {
   border: none;
   border-radius: 4px;
   display: inline-block;
@@ -28,7 +28,7 @@
     background-color: $button-flat-hover-bg;
   }
   i {
-    font-size: 13px;
+    //font-size: 13px;
     line-height: inherit;
   }
   &.md-large {
@@ -45,10 +45,17 @@
   &.md-block {
     width: 100%;
   }
+  &.md-icon-button {
+    height: 40px;
+    line-height: 24px;
+    width: 40px;
+    border-radius: 50%;
+    padding: 8px;
+  }
 }
 
 // RAISED COLORS
-.md-btn {
+.md-button {
   &.disabled {
     background-color: $disabled-color !important;
     color: #aaa !important;
@@ -88,7 +95,8 @@
 }
 
 // NONRAISED COLORS
-.md-btn.md-flat {
+.md-button.md-flat,
+.md-button.md-icon-button {
   box-shadow: none;
   background-color: transparent;
 

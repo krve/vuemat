@@ -42,6 +42,10 @@ const app = new Vue({
     methods: {
         openModal(ref) {
             this.$refs[ref].open();
+        },
+
+        closeModal(ref) {
+            this.$refs[ref].close();
         }
     }
 });

@@ -19,7 +19,7 @@
                     <h2 id="buttons">Buttons</h2>
                     <p>
                         <md-btn class="md-flat">
-                            Button
+                            Default
                         </md-btn>
                         <md-btn class="md-flat md-primary">Primary</md-btn>
                         <md-btn class="md-flat md-success">Success</md-btn>
@@ -28,7 +28,7 @@
                         <md-btn class="md-flat" disabled>Disabled</md-btn>
                     </p>
                     <p>
-                        <md-btn>Button</md-btn>
+                        <md-btn>Default</md-btn>
                         <md-btn class="md-primary">Primary</md-btn>
                         <md-btn class="md-success">Success</md-btn>
                         <md-btn class="md-warning">Warning</md-btn>
@@ -380,7 +380,10 @@
                             <md-modal title="My Custom Title" ref="modaltwo">Testing!</md-modal>
                         </div>
                         <div class="col-md-4">
-
+                            <md-button class="md-primary md-block" @click.native="openModal('modalthree')">Open Modal</md-button>
+                            <md-modal title="I have the power of the world!" ref="modalthree">
+                                <md-button class="md-flat md-warning" @click.native="closeModal('modalthree')">Close Modal</md-button>
+                            </md-modal>
                         </div>
                     </div>
                 </div>

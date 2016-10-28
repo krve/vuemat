@@ -1,4 +1,5 @@
 .md-alert {
+  position: relative;
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 2px;
@@ -19,10 +20,10 @@
     background-color: $danger-color;
     color: #fff;
   }
-  .material-icons {
-    float: right;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 22px;
-  }
+}
+.md-alert-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  margin: -10px;
 }

@@ -10,19 +10,33 @@
 
             var rippler = el.querySelector('.md-ripple');
 
-            el.addEventListener('click', e => {
+            el.addEventListener('mousedown', e => {
                 var elWidth = el.offsetWidth,
                     elHeight = el.offsetHeight;
                 var rippleSize = ((elWidth < elHeight) ? elHeight : elWidth);
 
                 rippler.classList.remove('active');
 
+                var boundingBox = el.getBoundingClientRect();
+
+                var leftOffset = (e.clientX - boundingBox.left) - rippleSize / 2;
+                var topOffset = (e.clientY - boundingBox.top) - rippleSize / 2;
+
+                if (el.classList.contains('md-icon-button')) {
+                    leftOffset = 0;
+                    topOffset = 0;
+                }
+
                 setTimeout(() => {
                     rippler.style.width = rippleSize + 'px';
                     rippler.style.height = rippleSize + 'px';
-                    rippler.style.left = e.layerX - rippleSize / 2 + 'px';
-                    rippler.style.top = e.layerY - rippleSize / 2 + 'px';
+                    rippler.style.left = leftOffset + 'px';
+                    rippler.style.top = topOffset + 'px';
                     rippler.classList.add('active');
+
+                    setTimeout(() => {
+                        rippler.classList.remove('active');
+                    }, 1000);
                 }, 10);
             });
         }

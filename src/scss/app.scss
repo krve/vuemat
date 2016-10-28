@@ -14,9 +14,10 @@ body {
 @import "node_modules/flatpickr/dist/flatpickr.material_blue.min";
 
 // Components
+@import 'components/ripple';
 @import "components/variables";
 @import 'components/typography';
-@import 'components/btn';
+@import 'components/button';
 @import 'components/icon';
 @import 'components/chip';
 @import 'components/widget';
@@ -28,7 +29,6 @@ body {
 @import 'components/rating';
 @import 'components/dropdown';
 @import 'components/select';
-@import 'components/ripple';
 @import 'components/modal';
 @import 'components/card';
 @import 'components/utility';

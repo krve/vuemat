@@ -1,7 +1,9 @@
 <template>
     <div class="md-alert">
-        <md-icon v-if="closeable" @click.native="close" right>close</md-icon>
         <slot></slot>
+        <md-button v-if="closeable" class="md-icon-button md-alert-close"  @click.native="close" v-ripple>
+            <md-icon>close</md-icon>
+        </md-button>
     </div>
 </template>
 
