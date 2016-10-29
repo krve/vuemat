@@ -10459,17 +10459,11 @@
 	        });
 
 	        this.$el.parentElement.addEventListener('mouseleave', function (event) {
-	            _this.tooltip.remove();
+	            _this.close();
 	        });
 
 	        document.addEventListener('scroll', function () {
-	            var tooltips = document.querySelectorAll('.md-tooltip');
-
-	            if (tooltips.length > 0) {
-	                for (var i = 0; i < tooltips.length; i++) {
-	                    tooltips[i].remove();
-	                }
-	            }
+	            _this.close();
 	        });
 
 	        this.$el.remove();
@@ -10504,6 +10498,17 @@
 
 	            this.tooltip.style.left = left + 'px';
 	            this.tooltip.style.top = top + 'px';
+	        },
+	        close: function close() {
+	            var _this2 = this;
+
+	            if (this.tooltip) {
+	                this.tooltip.style.opacity = 0;
+
+	                setTimeout(function () {
+	                    _this2.tooltip.remove();
+	                }, 200);
+	            }
 	        }
 	    }
 	};

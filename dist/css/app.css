@@ -686,7 +686,9 @@ i.right {
   color: #fff;
   padding: 5px;
   max-width: 250px;
-  font-size: 12px; }
+  font-size: 12px;
+  opacity: 1;
+  transition: opacity .2s; }
   .md-tooltip .md-icon {
     font-size: 12px;
     line-height: inherit;
