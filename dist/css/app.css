@@ -338,24 +338,28 @@ span.flatpickr-weekday {
   transform: scale(0);
   background-color: currentColor;
   opacity: .26;
-  border-radius: 50%; }
+  border-radius: 50%;
+  transition: transform 1s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 1s cubic-bezier(0.25, 0.8, 0.25, 1); }
   .md-ripple.active {
-    animation: ripple 1s cubic-bezier(0.25, 0.8, 0.25, 1); }
+    transform: scale(1.5); }
+  .md-ripple.active-out {
+    opacity: 0; }
 
 @keyframes ripple {
   to {
     transform: scale(1.5);
     opacity: 0; } }
 
-.md-button .md-ink-ripple {
-  border-radius: 4px;
+.md-button .md-ink-ripple,
+.md-button.md-icon-button .md-ink-ripple {
   overflow: hidden;
   background-clip: padding-box; }
 
+.md-button .md-ink-ripple {
+  border-radius: 4px; }
+
 .md-button.md-icon-button .md-ink-ripple {
-  border-radius: 50%;
-  overflow: hidden;
-  background-clip: padding-box; }
+  border-radius: 50%; }
 
 .no-margin {
   margin: 0; }
