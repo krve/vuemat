@@ -871,12 +871,11 @@ i.right {
   .md-card-icons a {
     display: flex;
     text-decoration: none; }
-  .md-card-icons .md-icon {
+  .md-card-icons .md-icon-button .md-icon {
     color: #9e9e9e;
-    margin-left: 15px;
     transition: .15s ease; }
-    .md-card-icons .md-icon:hover {
-      color: #0069cb; }
+  .md-card-icons .md-icon-button:hover .md-icon {
+    color: #0069cb; }
 
 .left {
   float: left !important; }

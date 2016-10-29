@@ -51,18 +51,18 @@
 .md-card-icons {
   display: flex;
   user-select: none;
-  
+
   a {
     display: flex;
     text-decoration: none;
   }
-  .md-icon {
-    color: #9e9e9e;
-    margin-left: 15px;
+  .md-icon-button {
+    .md-icon {
+      color: #9e9e9e;
 
-    transition: .15s ease;
-
-    &:hover {
+      transition: .15s ease;
+    }
+    &:hover .md-icon {
       color: $primary-color;
     }
   }
