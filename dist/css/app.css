@@ -1,9 +1,14 @@
 @charset "UTF-8";
 @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700';
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import url(/css/flexframe.css);
+html {
+  font-size: 10px; }
+
 body {
   padding-top: 50px;
   padding-bottom: 50px;
+  font-size: 14px;
   background-color: whitesmoke;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
@@ -553,7 +558,8 @@ i.right {
   position: absolute;
   top: 15px;
   right: 15px;
-  margin: -10px; }
+  margin: -10px;
+  color: #fff; }
 
 .md-input-field {
   position: relative;
@@ -787,6 +793,9 @@ i.right {
   float: right;
   font-size: 10px; }
 
+.modal-open {
+  overflow: hidden; }
+
 .md-modal-wrapper {
   position: fixed;
   top: 0;
@@ -804,6 +813,7 @@ i.right {
   background-color: #fff;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   width: 600px;
+  max-width: 80%;
   border-radius: 2px;
   z-index: 1001; }
 
@@ -821,6 +831,10 @@ i.right {
   top: 24px;
   right: 24px;
   margin: -8px; }
+  @media (max-width: 767px) {
+    .md-modal-close {
+      top: 12px;
+      right: 12px; } }
 
 .modal-enter-active, .modal-leave-active {
   transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
@@ -891,3 +905,12 @@ i.right {
 
 .md-circle {
   border-radius: 50%; }
+
+.text-left {
+  text-align: left; }
+
+.text-center {
+  text-align: center; }
+
+.text-right {
+  text-align: right; }

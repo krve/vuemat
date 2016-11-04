@@ -33,11 +33,15 @@
         methods: {
             open() {
                 this.show = true;
+                document.querySelector('body').classList.add('modal-open');
+
                 this.$emit('open');
             },
 
             close() {
                 this.show = false;
+                document.querySelector('body').classList.remove('modal-open');
+
                 this.$emit('close');
             },
         }

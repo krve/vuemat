@@ -9254,6 +9254,8 @@
 	        this.element = element;
 	        this.ripples = [];
 
+	        if (this.element.classList.contains('disabled')) return;
+
 	        this.init();
 
 	        this.element.addEventListener('mousedown', function (e) {
@@ -13412,10 +13414,14 @@
 	    methods: {
 	        open: function open() {
 	            this.show = true;
+	            document.querySelector('body').classList.add('modal-open');
+
 	            this.$emit('open');
 	        },
 	        close: function close() {
 	            this.show = false;
+	            document.querySelector('body').classList.remove('modal-open');
+
 	            this.$emit('close');
 	        }
 	    }

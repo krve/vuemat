@@ -3,19 +3,26 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700';
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 
+html {
+  font-size: 10px;
+}
+
 body {
   padding-top: 50px;
   padding-bottom: 50px;
+  font-size: 14px;
   background-color: whitesmoke;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 // Assets
+@import "/css/flexframe.css";
 @import "node_modules/flatpickr/dist/flatpickr.material_blue.min";
+
+@import "components/variables";
 
 // Components
 @import 'components/ripple';
-@import "components/variables";
 @import 'components/typography';
 @import 'components/button';
 @import 'components/icon';

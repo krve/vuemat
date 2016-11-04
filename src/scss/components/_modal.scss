@@ -1,3 +1,6 @@
+.modal-open {
+  overflow: hidden;
+}
 .md-modal-wrapper {
   position: fixed;
   top: 0;
@@ -16,6 +19,7 @@
   background-color: #fff;
   box-shadow: $z-level-1;
   width: 600px;
+  max-width: 80%;
   border-radius: 2px;
   z-index: 1001;
 }
@@ -33,6 +37,11 @@
   top: 24px;
   right: 24px;
   margin: -8px;
+
+  @media (max-width: 767px) {
+    top: 12px;
+    right: 12px;
+  }
 }
 .modal-enter-active, .modal-leave-active {
   transition: opacity .4s cubic-bezier(0.25,0.8,0.25,1);

@@ -11,6 +11,8 @@
             this.element = element;
             this.ripples = [];
 
+            if (this.element.classList.contains('disabled')) return;
+
             this.init();
 
             this.element.addEventListener('mousedown', e => {
