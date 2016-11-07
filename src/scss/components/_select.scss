@@ -4,6 +4,10 @@
   select {
     display: none;
   }
+
+  .md-dropdown-wrapper {
+    position: static;
+  }
 }
 .md-select-label {
   font-weight: 300;

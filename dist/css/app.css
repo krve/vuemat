@@ -714,6 +714,9 @@ i.right {
     .rating li .md-icon {
       color: #FF9800; }
 
+.md-dropdown-wrapper {
+  position: relative; }
+
 .md-dropdown {
   display: none;
   background-color: #fff;
@@ -772,6 +775,8 @@ i.right {
   margin-bottom: 15px; }
   .md-select-wrapper select {
     display: none; }
+  .md-select-wrapper .md-dropdown-wrapper {
+    position: static; }
 
 .md-select-label {
   font-weight: 300;
