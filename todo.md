@@ -24,5 +24,5 @@
 - Drawer
 
 ### END
-- Make it easy to integrate and user (Single JS and CSS file)
+- Make it easy to integrate and use (Single JS and CSS file)
 - Make it customizable (Which *plugins* do you want)
