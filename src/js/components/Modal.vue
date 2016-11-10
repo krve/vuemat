@@ -35,12 +35,24 @@
                 this.show = true;
                 document.querySelector('body').classList.add('modal-open');
 
+                document.addEventListener('keyup', e => {
+                    if (e.keyCode == 27) {
+                        this.close();
+                    }
+                });
+
                 this.$emit('open');
             },
 
             close() {
                 this.show = false;
                 document.querySelector('body').classList.remove('modal-open');
+
+                document.removeEventListener('keyup', e => {
+                    if (e.keyCode == 27) {
+                        this.close();
+                    }
+                });
 
                 this.$emit('close');
             },
