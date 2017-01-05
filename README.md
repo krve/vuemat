@@ -28,6 +28,7 @@ A VueJS Material Framework.
 - Loader / Spinner
 - Sidenav
 - Drawer
+- Accessibility when using selects, dropdowns to support only keyboard.
 
 ### END
 - Make it easy to integrate and use (Single JS and CSS file)
