@@ -58,6 +58,8 @@
                 if (this.seconds) {
                     format += ':s';
                 }
+            } else if (this.format == null) {
+                format = 'Y-m-d';
             }
 
             if (! this.isMobile()) {
