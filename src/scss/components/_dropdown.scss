@@ -9,6 +9,8 @@
   margin: 0;
   list-style-type: none;
   z-index: 500;
+  max-height: 350px;
+  overflow-y: auto;
 
   &.active {
     position: absolute;

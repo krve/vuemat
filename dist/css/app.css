@@ -540,6 +540,9 @@ span.flatpickr-weekday {
     -webkit-transform: none;
     transform: none; } }
 
+.flatpickr-calendar {
+  z-index: 1200; }
+
 .has-ripple {
   position: relative; }
 
@@ -815,8 +818,17 @@ i.right {
     outline: 0; }
     .md-input:focus + label {
       color: #106cc8; }
+    .md-input:focus ~ .md-input-icon {
+      color: #106cc8; }
   .md-input.disabled {
     border-style: dotted; }
+
+.md-input-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #9e9e9e;
+  transition: all 0.3s; }
 
 .md-radio-field {
   position: relative;
@@ -940,7 +952,9 @@ i.right {
   padding: 0;
   margin: 0;
   list-style-type: none;
-  z-index: 500; }
+  z-index: 500;
+  max-height: 350px;
+  overflow-y: auto; }
   .md-dropdown.active {
     position: absolute;
     top: 0;
@@ -996,13 +1010,17 @@ i.right {
 
 .md-select-label {
   font-weight: 300;
-  font-size: 14px;
+  font-size: 12px;
+  margin-bottom: 0;
+  color: #9e9e9e;
+  position: relative;
+  bottom: -6px;
   pointer-events: none;
   transition: .2s ease; }
 
 .md-select-toggle {
   padding: 5px 0 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #9e9e9e;
   font-size: 16px;
   cursor: pointer; }
 
@@ -1037,6 +1055,8 @@ i.right {
   max-width: 80%;
   border-radius: 2px;
   z-index: 1001; }
+  .md-modal--small {
+    width: 400px; }
 
 .md-modal-title {
   padding: 24px;

@@ -11244,14 +11244,18 @@
 	//
 	//
 	//
+	//
+	//
+	//
 
 	exports.default = {
 	    props: {
+	        name: String,
+	        icon: String,
 	        type: {
 	            type: String,
 	            default: 'text'
 	        },
-	        name: String,
 	        placeholder: {
 	            type: String,
 	            default: null
@@ -11333,7 +11337,9 @@
 	    attrs: {
 	      "for": _vm.id
 	    }
-	  }, [_vm._t("default")], 2)])
+	  }, [_vm._t("default")], 2), _vm._v(" "), (_vm.icon) ? _c('md-icon', {
+	    staticClass: "md-input-icon"
+	  }, [_vm._v("\n        " + _vm._s(_vm.icon) + "\n    ")]) : _vm._e()], 1)
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -14737,7 +14743,8 @@
 
 	exports.default = {
 	    props: {
-	        title: String
+	        title: String,
+	        small: Boolean
 	    },
 
 	    data: function data() {
@@ -14745,33 +14752,45 @@
 	            show: false
 	        };
 	    },
-	    mounted: function mounted() {},
+	    mounted: function mounted() {
+	        var _this = this;
+
+	        // Hide the modal when you click on the overlay
+	        this.$el.addEventListener('click', function (e) {
+	            var closestElement = closest(e.target, '.md-modal');
+	            var thisClosestElement = _this.$refs.modal;
+
+	            if ((closestElement == null || closestElement != thisClosestElement) && _this.show == true) {
+	                _this.close();
+	            }
+	        });
+	    },
 
 
 	    methods: {
 	        open: function open() {
-	            var _this = this;
+	            var _this2 = this;
 
 	            this.show = true;
 	            document.querySelector('body').classList.add('modal-open');
 
 	            document.addEventListener('keyup', function (e) {
 	                if (e.keyCode == 27) {
-	                    _this.close();
+	                    _this2.close();
 	                }
 	            });
 
 	            this.$emit('open');
 	        },
 	        close: function close() {
-	            var _this2 = this;
+	            var _this3 = this;
 
 	            this.show = false;
 	            document.querySelector('body').classList.remove('modal-open');
 
 	            document.removeEventListener('keyup', function (e) {
 	                if (e.keyCode == 27) {
-	                    _this2.close();
+	                    _this3.close();
 	                }
 	            });
 
@@ -14796,16 +14815,15 @@
 	      value: (_vm.show),
 	      expression: "show"
 	    }],
-	    staticClass: "md-modal-wrapper",
-	    on: {
-	      "click": _vm.close
-	    }
+	    staticClass: "md-modal-wrapper"
 	  }, [_c('div', {
+	    ref: "modal",
 	    staticClass: "md-modal",
+	    class: {
+	      'md-modal--small': _vm.small
+	    },
 	    on: {
-	      "click": function($event) {
-	        $event.stopPropagation();
-	      }
+	      "click": function($event) {}
 	    }
 	  }, [_c('md-button', {
 	    staticClass: "md-icon-button md-modal-close",

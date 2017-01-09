@@ -21,6 +21,9 @@ body {
 
 @import "components/variables";
 
+// Overrides
+@import 'components/flatpickr';
+
 // Components
 @import 'components/ripple';
 @import 'components/typography';

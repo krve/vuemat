@@ -14,17 +14,21 @@
         <label :for="id">
             <slot></slot>
         </label>
+        <md-icon v-if="icon" class="md-input-icon">
+            {{ icon }}
+        </md-icon>
     </div>
 </template>
 
 <script>
     export default {
         props: {
+            name: String,
+            icon: String,
             type: {
                 type: String,
                 default: 'text'
             },
-            name: String,
             placeholder: {
                 type: String,
                 default: null

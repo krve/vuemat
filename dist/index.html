@@ -384,9 +384,49 @@
                             <md-modal title="My Custom Title" ref="modaltwo">Testing!</md-modal>
                         </div>
                         <div class="m4">
-                            <md-button class="md-primary md-block" @click.native="openModal('modalthree')">Open Modal</md-button>
-                            <md-modal title="I have the power of the world!" ref="modalthree">
-                                <md-button class="md-flat md-warning" @click.native="closeModal('modalthree')">Close Modal</md-button>
+                            <md-button class="md-primary md-block" @click.native="openModal('modalthree')">Meeting Modal</md-button>
+                            <md-modal ref="modalthree" small>
+                                <h2 class="text-center">Schedule Meeting</h2>
+                                <md-input name="name" value="Design Catchup">Name</md-input>
+                                <br>
+                                <div class="row">
+                                    <div class="m6">
+                                        <md-datepicker name="date" format="D \- d F" date="2016-09-18">When</md-datepicker>
+                                    </div>
+                                    <div class="m6">
+                                        <md-select name="user" placeholder="Choose the time" label="Time">
+                                            <option value="1">00:00 am</option>
+                                            <option value="2">01:00 am</option>
+                                            <option value="3">02:00 am</option>
+                                            <option value="4">03:00 am</option>
+                                            <option value="5">04:00 am</option>
+                                            <option value="6">05:00 am</option>
+                                            <option value="7">06:00 am</option>
+                                            <option value="8">07:00 am</option>
+                                            <option value="9">08:00 am</option>
+                                            <option value="10">09:00 am</option>
+                                            <option value="11">10:00 am</option>
+                                            <option value="12" selected>11:00 am</option>
+                                            <option value="13">12:00 am</option>
+                                            <option value="14">01:00 pm</option>
+                                            <option value="15">02:00 pm</option>
+                                            <option value="16">03:00 pm</option>
+                                            <option value="17">04:00 pm</option>
+                                            <option value="18">05:00 pm</option>
+                                            <option value="19">06:00 pm</option>
+                                            <option value="20">07:00 pm</option>
+                                            <option value="21">08:00 pm</option>
+                                            <option value="22">09:00 pm</option>
+                                            <option value="23">10:00 pm</option>
+                                            <option value="24">11:00 pm</option>
+                                        </md-select>
+                                    </div>
+                                </div>
+                                <md-input name="name" value="Alex" icon="search" focused>People to invite</md-input>
+                                <br>
+                                <md-checkbox name="notify_slack">Notify people on Slack of this meeting?</md-checkbox>
+                                <br>
+                                <md-button class="md-primary md-block">Create Meeting</md-button>
                             </md-modal>
                         </div>
                     </div>

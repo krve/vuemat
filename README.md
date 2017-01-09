@@ -21,6 +21,7 @@ A VueJS Material Framework.
 - ~~Dropdown~~
 - ~~Datepicker (Flatpickr)~~
 - ~~Modal~~
+- Input Icons (The ability to add icons at the far right of an input)
 - Collapse / Accordion
 - Snackbar / Toasts
 - Toggles

@@ -1,7 +1,7 @@
 <template>
     <transition name="modal">
-        <div class="md-modal-wrapper" v-show="show" @click="close">
-            <div class="md-modal" @click.stop>
+        <div class="md-modal-wrapper" v-show="show">
+            <div class="md-modal" :class="{ 'md-modal--small': small }" ref="modal" @click>
                 <md-button class="md-icon-button md-modal-close" @click.native="close">
                     <md-icon class="md-circle">close</md-icon>
                 </md-button>
@@ -18,6 +18,7 @@
     export default {
         props: {
             title: String,
+            small: Boolean
         },
 
         data() {
@@ -27,7 +28,15 @@
         },
 
         mounted() {
+            // Hide the modal when you click on the overlay
+            this.$el.addEventListener('click', (e) => {
+                var closestElement = closest(e.target, '.md-modal');
+                var thisClosestElement = this.$refs.modal;
 
+                if ((closestElement == null || closestElement != thisClosestElement) && this.show == true) {
+                    this.close();
+                }
+            });
         },
 
         methods: {

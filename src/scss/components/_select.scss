@@ -11,14 +11,18 @@
 }
 .md-select-label {
   font-weight: 300;
-  font-size: 14px;
+  font-size: 12px;
+  margin-bottom: 0;
+  color: $md-input-label-color;
+  position: relative;
+  bottom: -6px;
 
   pointer-events: none;
   transition: .2s ease;
 }
 .md-select-toggle {
   padding: 5px 0 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $md-input-border-color;
   font-size: 16px;
   cursor: pointer;
 }
