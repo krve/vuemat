@@ -1,36 +1,11 @@
-## Vuemat
+## VueJS Material Elements
+A set of VueJS Material elements.
 
-A VueJS Material Framework.
+This is currently a work in progress. If you have any ideas or improvements, feel free to create an issue or a PR.
 
+## Contributing
+If you see anything you think could be improved, feel free to fork and create a PR with your changes.
 
-### Todo
-- ~~Alerts~~
-- ~~Buttons~~
-- ~~Checkboxes~~
-- ~~Chips~~
-- ~~Icons~~
-- ~~Inputs~~
-- ~~Radios~~
-- ~~Tooltips~~
-- ~~Cards~~
-    - ~~Profile Cards~~
-    - ~~Product Cards~~
-- ~~Select~~
-    - ~~Multiple~~
-    - ~~OptGroups~~
-- ~~Dropdown~~
-- ~~Datepicker (Flatpickr)~~
-- ~~Modal~~
-- Input Icons (The ability to add icons at the far right of an input)
-- Collapse / Accordion
-- Snackbar / Toasts
-- Toggles
-- Range sliders
-- Loader / Spinner
-- Sidenav
-- Drawer
-- Accessibility when using selects, dropdowns to support only keyboard.
+### License
 
-### END
-- Make it easy to integrate and use (Single JS and CSS file)
-- Make it customizable (Which *plugins* do you want)
+MIT © [krve][author]

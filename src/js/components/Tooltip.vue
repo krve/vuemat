@@ -37,7 +37,7 @@
             });
 
             document.addEventListener('scroll', () => {
-                this.close();
+                this.closeInstantly();
             });
 
             this.$el.remove();
@@ -80,6 +80,12 @@
                     setTimeout(() => {
                         this.tooltip.remove();
                     }, 200);
+                }
+            },
+
+            closeInstantly() {
+                if (this.tooltip) {
+                    this.tooltip.remove();
                 }
             }
         },

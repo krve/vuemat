@@ -11863,7 +11863,7 @@
 	        });
 
 	        document.addEventListener('scroll', function () {
-	            _this.close();
+	            _this.closeInstantly();
 	        });
 
 	        this.$el.remove();
@@ -11908,6 +11908,11 @@
 	                setTimeout(function () {
 	                    _this2.tooltip.remove();
 	                }, 200);
+	            }
+	        },
+	        closeInstantly: function closeInstantly() {
+	            if (this.tooltip) {
+	                this.tooltip.remove();
 	            }
 	        }
 	    }

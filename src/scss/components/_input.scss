@@ -61,6 +61,7 @@
   top: 5px;
   right: 5px;
   color: $md-input-label-color;
+  pointer-events: none;
 
   transition: all 0.3s;
 }
