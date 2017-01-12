@@ -81,6 +81,8 @@
 	Vue.component('md-select', __webpack_require__(68));
 	Vue.component('md-datepicker', __webpack_require__(71));
 	Vue.component('md-modal', __webpack_require__(75));
+	Vue.component('md-tabs', __webpack_require__(78));
+	Vue.component('md-tab', __webpack_require__(81));
 
 	// New vue instance
 	var app = new Vue({
@@ -14849,6 +14851,266 @@
 	  module.hot.accept()
 	  if (module.hot.data) {
 	     require("vue-hot-reload-api").rerender("data-v-7034149e", module.exports)
+	  }
+	}
+
+/***/ },
+/* 78 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+
+	/* script */
+	__vue_exports__ = __webpack_require__(79)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(80)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/home/phantom/development/valet/vuemat/src/js/components/Tabs.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-ad545bc6", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-ad545bc6", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] Tabs.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+	module.exports = __vue_exports__
+
+
+/***/ },
+/* 79 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+	exports.default = {
+	    props: {},
+
+	    data: function data() {
+	        return {
+	            tabs: [],
+	            activeBar: null
+	        };
+	    },
+	    mounted: function mounted() {
+	        var _this = this;
+
+	        this.tabs = this.$children;
+	        this.activeBar = this.$refs.bar;
+
+	        setTimeout(function () {
+	            _this.tabs.forEach(function (tab) {
+	                if (tab.isActive == true) {
+	                    _this.$el.querySelector('#' + tab.id).click();
+	                }
+	            });
+	        }, 500);
+	    },
+
+
+	    methods: {
+	        selectTab: function selectTab(event, selectedTab) {
+	            this.tabs.forEach(function (tab) {
+	                tab.isActive = tab.title == selectedTab.title;
+	            });
+
+	            // Move the active-bar
+	            var target = event.target;
+	            var paddingOffset = window.outerWidth < 768 ? 10 : 0;
+	            var scrollOffset = closest(this.activeBar, 'ul').scrollLeft;
+	            var offsetLeft = target.offsetLeft + scrollOffset;
+	            var width = target.offsetWidth;
+
+	            this.activeBar.style.left = offsetLeft + 'px';
+	            this.activeBar.style.width = width + 'px';
+	        }
+	    }
+	};
+
+/***/ },
+/* 80 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    staticClass: "md-tabs"
+	  }, [_c('ul', [_vm._l((_vm.tabs), function(tab) {
+	    return _c('li', {
+	      class: {
+	        'active': tab.isActive
+	      },
+	      attrs: {
+	        "id": tab.id
+	      }
+	    }, [_c('a', {
+	      attrs: {
+	        "href": tab.href
+	      },
+	      on: {
+	        "click": function($event) {
+	          _vm.selectTab($event, tab)
+	        }
+	      }
+	    }, [_vm._v(_vm._s(tab.title))])])
+	  }), _vm._v(" "), _c('span', {
+	    ref: "bar",
+	    staticClass: "md-tabs-bar"
+	  })], 2), _vm._v(" "), _c('div', {
+	    staticClass: "md-tabs-details"
+	  }, [_vm._t("default")], 2)])
+	},staticRenderFns: []}
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-ad545bc6", module.exports)
+	  }
+	}
+
+/***/ },
+/* 81 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_exports__, __vue_options__
+	var __vue_styles__ = {}
+
+	/* script */
+	__vue_exports__ = __webpack_require__(82)
+
+	/* template */
+	var __vue_template__ = __webpack_require__(83)
+	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
+	if (
+	  typeof __vue_exports__.default === "object" ||
+	  typeof __vue_exports__.default === "function"
+	) {
+	if (Object.keys(__vue_exports__).some(function (key) { return key !== "default" && key !== "__esModule" })) {console.error("named exports are not supported in *.vue files.")}
+	__vue_options__ = __vue_exports__ = __vue_exports__.default
+	}
+	if (typeof __vue_options__ === "function") {
+	  __vue_options__ = __vue_options__.options
+	}
+	__vue_options__.__file = "/home/phantom/development/valet/vuemat/src/js/components/Tab.vue"
+	__vue_options__.render = __vue_template__.render
+	__vue_options__.staticRenderFns = __vue_template__.staticRenderFns
+
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-602ec7c6", __vue_options__)
+	  } else {
+	    hotAPI.reload("data-v-602ec7c6", __vue_options__)
+	  }
+	})()}
+	if (__vue_options__.functional) {console.error("[vue-loader] Tab.vue: functional components are not supported and should be defined in plain js files using render functions.")}
+
+	module.exports = __vue_exports__
+
+
+/***/ },
+/* 82 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	//
+	//
+	//
+	//
+	//
+	//
+
+	exports.default = {
+	    props: {
+	        title: { required: true },
+	        selected: { default: false }
+	    },
+
+	    data: function data() {
+	        return {
+	            isActive: false
+	        };
+	    },
+
+
+	    computed: {
+	        href: function href() {
+	            return '#' + this.id;
+	        },
+	        id: function id() {
+	            return this.title.toLowerCase().replace(/ /g, '-');
+	        }
+	    },
+
+	    mounted: function mounted() {
+	        this.isActive = this.selected;
+	    }
+	};
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    directives: [{
+	      name: "show",
+	      rawName: "v-show",
+	      value: (_vm.isActive),
+	      expression: "isActive"
+	    }],
+	    staticClass: "md-tab"
+	  }, [_vm._t("default")], 2)
+	},staticRenderFns: []}
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-hot-reload-api").rerender("data-v-602ec7c6", module.exports)
 	  }
 	}
 

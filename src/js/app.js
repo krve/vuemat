@@ -34,6 +34,8 @@ Vue.component('md-dropdown-group', require('./components/DropdownGroup.vue'));
 Vue.component('md-select', require('./components/Select.vue'));
 Vue.component('md-datepicker', require('./components/Datepicker.vue'));
 Vue.component('md-modal', require('./components/Modal.vue'));
+Vue.component('md-tabs', require('./components/Tabs.vue'));
+Vue.component('md-tab', require('./components/Tab.vue'));
 
 // New vue instance
 const app = new Vue({

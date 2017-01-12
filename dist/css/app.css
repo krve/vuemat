@@ -1139,6 +1139,32 @@ i.right {
   .md-card-icons .md-icon-button:hover .md-icon {
     color: #0069cb; }
 
+.md-tabs ul {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex; }
+  .md-tabs ul li a {
+    display: block;
+    padding: 16px 8px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer; }
+  .md-tabs ul li.active a {
+    color: #106cc8; }
+  .md-tabs ul .md-tabs-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: #106cc8;
+    transition: .2s all; }
+
+.md-tabs-details {
+  padding: 10px 0; }
+
 .left {
   float: left !important; }
 
