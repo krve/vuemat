@@ -9,3 +9,5 @@ If you see anything you think could be improved, feel free to fork and create a 
 ### License
 
 MIT © [krve][author]
+
+[author]:     https://github.com/krve
