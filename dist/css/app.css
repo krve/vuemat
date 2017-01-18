@@ -548,6 +548,7 @@ span.flatpickr-weekday {
 
 .md-ink-ripple {
   pointer-events: none;
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
@@ -1096,6 +1097,8 @@ i.right {
   margin-bottom: 15px; }
   .md-card .md-card-content {
     padding: 20px; }
+  .md-card.md-edged .md-card-content {
+    padding: 0; }
   .md-card h1, .md-card h2,
   .md-card h3, .md-card h4,
   .md-card h5, .md-card h6 {
@@ -1149,7 +1152,7 @@ i.right {
   .md-tabs ul li a {
     min-width: 72px;
     padding: 16px 12px;
-    display: inline-block;
+    display: block;
     position: relative;
     cursor: pointer;
     border: 0;
@@ -1161,7 +1164,8 @@ i.right {
     text-transform: uppercase;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.54);
-    cursor: pointer; }
+    cursor: pointer;
+    text-align: center; }
   .md-tabs ul li.md-active a,
   .md-tabs ul li:active a {
     color: rgba(255, 255, 255, 0.87); }
@@ -1175,6 +1179,30 @@ i.right {
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), left 0.3s cubic-bezier(0.35, 0, 0.25, 1), right 0.15s cubic-bezier(0.35, 0, 0.25, 1); }
     .md-tabs ul .md-tabs-indicator.md-to-left {
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.3s cubic-bezier(0.35, 0, 0.25, 1), left 0.15s cubic-bezier(0.35, 0, 0.25, 1); }
+
+.md-tabs.md-fixed li {
+  flex: 1;
+  text-align: center; }
+
+.md-tabs.md-centered > ul {
+  justify-content: center; }
+
+.md-tabs.md-right > ul {
+  justify-content: flex-end; }
+
+.md-tabs.md-transparent > ul {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
+  .md-tabs.md-transparent > ul li a {
+    color: rgba(0, 0, 0, 0.54); }
+  .md-tabs.md-transparent > ul li.md-active a,
+  .md-tabs.md-transparent > ul li:active a {
+    color: #2196f3; }
+  .md-tabs.md-transparent > ul .md-tabs-indicator {
+    background-color: #2196f3; }
+
+.md-tabs.md-transition-off * {
+  transition: none !important; }
 
 .md-tabs-content {
   width: 100%;

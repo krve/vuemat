@@ -1,10 +1,11 @@
 .has-ripple {
   position: relative;
+  // overflow: hidden;
 }
 
 .md-ink-ripple {
   pointer-events: none;
-  //overflow: hidden;
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;

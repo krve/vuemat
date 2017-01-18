@@ -1,12 +1,12 @@
 <template>
-    <div class="md-tabs">
+    <div class="md-tabs" :class="tabClasses">
         <ul>
             <li v-for="tab in tabs" :id="tab.id" ref="tabHeader" :class="getTabClass(tab)" :disabled="tab.disabled">
                 <a :href="tab.href" @click="selectTab(tab)" v-ripple>{{ tab.title }}</a>
             </li>
             <span class="md-tabs-indicator" :class="indicatorClasses" ref="indicator"></span>
         </ul>
-        <div class="md-tabs-content" :style="{ height: contentHeight }">
+        <div class="md-tabs-content" ref="tabContent" :style="{ height: contentHeight }">
             <div class="md-tabs-wrapper" :style="{ transform: `translate3D(-${contentWidth}, 0, 0)` }">
                 <slot></slot>
             </div>
@@ -25,20 +25,39 @@
                 activeTabNumber: null,
                 contentHeight: '0px',
                 contentWidth: '0px',
+                transitionOff: false
             }
         },
 
         mounted() {
             this.$nextTick(() => {
+                this.observeElementChanges();
+                window.addEventListener('resize', this.calculateOnResize);
+
                 if (Object.keys(this.tabs).length && !this.activeTab) {
                     let firstTab = Object.keys(this.tabs)[0];
 
                     this.selectTab(this.tabs[firstTab]);
                 }
+
+                this.calculatePosition();
             });
         },
 
+        beforeDestroy() {
+            if (this.parentObserver) {
+                this.parentObserver.disconnect();
+            }
+            window.removeEventListener('resize', this.calculateOnResize);
+        },
+
         computed: {
+            tabClasses() {
+                return {
+                    'md-transition-off': this.transitionOff
+                };
+            },
+
             indicatorClasses() {
                 let toLeft = this.lastIndicatorNumber > this.activeTabNumber;
 
@@ -52,6 +71,33 @@
         },
 
         methods: {
+            observeElementChanges() {
+                this.parentObserver = new MutationObserver(throttle(this.calculateOnWatch, 50));
+                this.parentObserver.observe(this.$refs.tabContent, {
+                    childList: true,
+                    attributes: true,
+                    subtree: true
+                });
+            },
+
+            debounceTransition() {
+                window.clearTimeout(this.transitionControl);
+                this.transitionControl = window.setTimeout(() => {
+                    this.calculatePosition();
+                    this.transitionOff = false;
+                }, 1);
+            },
+
+            calculateOnWatch() {
+                this.calculatePosition();
+                this.debounceTransition();
+            },
+
+            calculateOnResize() {
+                this.transitionOff = true;
+                this.calculateOnWatch();
+            },
+
             getTabClass(tab) {
                 return {
                     'md-active': (this.activeTab && this.activeTab.id) && this.activeTab.id  === tab.id,
@@ -72,6 +118,7 @@
                 this.activeTabNumber = this.getTabIndex(selectedTab.id);
 
                 this.calculatePosition();
+                this.$emit('change', this.activeTabNumber);
             },
 
             getTabIndex(id) {

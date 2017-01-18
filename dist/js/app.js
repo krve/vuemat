@@ -61,19 +61,33 @@
 	 */
 
 	window.getClosestVueParent = function ($parent, cssClass) {
-	    if (!$parent || !$parent.$el) {
-	        return false;
-	    }
+	  if (!$parent || !$parent.$el) {
+	    return false;
+	  }
 
-	    if ($parent._uid === 0) {
-	        return false;
-	    }
+	  if ($parent._uid === 0) {
+	    return false;
+	  }
 
-	    if ($parent.$el.classList.contains(cssClass)) {
-	        return $parent;
-	    }
+	  if ($parent.$el.classList.contains(cssClass)) {
+	    return $parent;
+	  }
 
-	    return getClosestVueParent($parent.$parent, cssClass);
+	  return getClosestVueParent($parent.$parent, cssClass);
+	};
+	window.throttle = function (callback, limit) {
+	  var wait = false;
+
+	  return function () {
+	    if (!wait) {
+	      callback.call();
+	      wait = true;
+
+	      window.setTimeout(function () {
+	        wait = false;
+	      }, limit);
+	    }
+	  };
 	};
 
 	// Directives
@@ -102,16 +116,16 @@
 
 	// New vue instance
 	var app = new Vue({
-	    el: '#app',
+	  el: '#app',
 
-	    methods: {
-	        openModal: function openModal(ref) {
-	            this.$refs[ref].open();
-	        },
-	        closeModal: function closeModal(ref) {
-	            this.$refs[ref].close();
-	        }
+	  methods: {
+	    openModal: function openModal(ref) {
+	      this.$refs[ref].open();
+	    },
+	    closeModal: function closeModal(ref) {
+	      this.$refs[ref].close();
 	    }
+	  }
 	});
 
 /***/ },
@@ -14956,23 +14970,40 @@
 	            activeTab: null,
 	            activeTabNumber: null,
 	            contentHeight: '0px',
-	            contentWidth: '0px'
+	            contentWidth: '0px',
+	            transitionOff: false
 	        };
 	    },
 	    mounted: function mounted() {
 	        var _this = this;
 
 	        this.$nextTick(function () {
+	            _this.observeElementChanges();
+	            window.addEventListener('resize', _this.calculateOnResize);
+
 	            if ((0, _keys2.default)(_this.tabs).length && !_this.activeTab) {
 	                var firstTab = (0, _keys2.default)(_this.tabs)[0];
 
 	                _this.selectTab(_this.tabs[firstTab]);
 	            }
+
+	            _this.calculatePosition();
 	        });
+	    },
+	    beforeDestroy: function beforeDestroy() {
+	        if (this.parentObserver) {
+	            this.parentObserver.disconnect();
+	        }
+	        window.removeEventListener('resize', this.calculateOnResize);
 	    },
 
 
 	    computed: {
+	        tabClasses: function tabClasses() {
+	            return {
+	                'md-transition-off': this.transitionOff
+	            };
+	        },
 	        indicatorClasses: function indicatorClasses() {
 	            var toLeft = this.lastIndicatorNumber > this.activeTabNumber;
 
@@ -14986,6 +15017,31 @@
 	    },
 
 	    methods: {
+	        observeElementChanges: function observeElementChanges() {
+	            this.parentObserver = new MutationObserver(throttle(this.calculateOnWatch, 50));
+	            this.parentObserver.observe(this.$refs.tabContent, {
+	                childList: true,
+	                attributes: true,
+	                subtree: true
+	            });
+	        },
+	        debounceTransition: function debounceTransition() {
+	            var _this2 = this;
+
+	            window.clearTimeout(this.transitionControl);
+	            this.transitionControl = window.setTimeout(function () {
+	                _this2.calculatePosition();
+	                _this2.transitionOff = false;
+	            }, 1);
+	        },
+	        calculateOnWatch: function calculateOnWatch() {
+	            this.calculatePosition();
+	            this.debounceTransition();
+	        },
+	        calculateOnResize: function calculateOnResize() {
+	            this.transitionOff = true;
+	            this.calculateOnWatch();
+	        },
 	        getTabClass: function getTabClass(tab) {
 	            return {
 	                'md-active': this.activeTab && this.activeTab.id && this.activeTab.id === tab.id,
@@ -15004,6 +15060,7 @@
 	            this.activeTabNumber = this.getTabIndex(selectedTab.id);
 
 	            this.calculatePosition();
+	            this.$emit('change', this.activeTabNumber);
 	        },
 	        getTabIndex: function getTabIndex(id) {
 	            var idList = (0, _keys2.default)(this.tabs);
@@ -15011,12 +15068,12 @@
 	            return idList.indexOf(id);
 	        },
 	        calculatePosition: function calculatePosition() {
-	            var _this2 = this;
+	            var _this3 = this;
 
 	            window.requestAnimationFrame(function () {
-	                _this2.calculateIndicatorPosition();
-	                _this2.calculateTabsWidthAndPosition();
-	                _this2.calculateContentHeight();
+	                _this3.calculateIndicatorPosition();
+	                _this3.calculateTabsWidthAndPosition();
+	                _this3.calculateContentHeight();
 	            });
 	        },
 	        calculateIndicatorPosition: function calculateIndicatorPosition() {
@@ -15043,13 +15100,13 @@
 	            }
 	        },
 	        calculateContentHeight: function calculateContentHeight() {
-	            var _this3 = this;
+	            var _this4 = this;
 
 	            this.$nextTick(function () {
-	                if ((0, _keys2.default)(_this3.tabs).length) {
-	                    var height = _this3.tabs[_this3.activeTab.id].$el.offsetHeight;
+	                if ((0, _keys2.default)(_this4.tabs).length) {
+	                    var height = _this4.tabs[_this4.activeTab.id].$el.offsetHeight;
 
-	                    _this3.contentHeight = height + 'px';
+	                    _this4.contentHeight = height + 'px';
 	                }
 	            });
 	        }
@@ -15298,7 +15355,8 @@
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
-	    staticClass: "md-tabs"
+	    staticClass: "md-tabs",
+	    class: _vm.tabClasses
 	  }, [_c('ul', [_vm._l((_vm.tabs), function(tab) {
 	    return _c('li', {
 	      ref: "tabHeader",
@@ -15327,6 +15385,7 @@
 	    staticClass: "md-tabs-indicator",
 	    class: _vm.indicatorClasses
 	  })], 2), _vm._v(" "), _c('div', {
+	    ref: "tabContent",
 	    staticClass: "md-tabs-content",
 	    style: ({
 	      height: _vm.contentHeight

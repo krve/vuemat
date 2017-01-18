@@ -28,6 +28,20 @@ window.getClosestVueParent = ($parent, cssClass) => {
 
   return getClosestVueParent($parent.$parent, cssClass);
 };
+window.throttle = (callback, limit) => {
+  var wait = false;
+
+  return () => {
+    if (!wait) {
+      callback.call();
+      wait = true;
+
+      window.setTimeout(() => {
+        wait = false;
+      }, limit);
+    }
+  };
+};
 
 // Directives
 Vue.directive('ripple', require('./directives/Ripple.vue'));
