@@ -13,6 +13,22 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
+window.getClosestVueParent = ($parent, cssClass) => {
+  if (!$parent || !$parent.$el) {
+    return false;
+  }
+
+  if ($parent._uid === 0) {
+    return false;
+  }
+
+  if ($parent.$el.classList.contains(cssClass)) {
+    return $parent;
+  }
+
+  return getClosestVueParent($parent.$parent, cssClass);
+};
+
 // Directives
 Vue.directive('ripple', require('./directives/Ripple.vue'));
 

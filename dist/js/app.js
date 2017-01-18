@@ -60,6 +60,22 @@
 	 * the application, or feel free to tweak this setup for your needs.
 	 */
 
+	window.getClosestVueParent = function ($parent, cssClass) {
+	    if (!$parent || !$parent.$el) {
+	        return false;
+	    }
+
+	    if ($parent._uid === 0) {
+	        return false;
+	    }
+
+	    if ($parent.$el.classList.contains(cssClass)) {
+	        return $parent;
+	    }
+
+	    return getClosestVueParent($parent.$parent, cssClass);
+	};
+
 	// Directives
 	Vue.directive('ripple', __webpack_require__(4));
 
@@ -82,7 +98,7 @@
 	Vue.component('md-datepicker', __webpack_require__(71));
 	Vue.component('md-modal', __webpack_require__(75));
 	Vue.component('md-tabs', __webpack_require__(78));
-	Vue.component('md-tab', __webpack_require__(81));
+	Vue.component('md-tab', __webpack_require__(101));
 
 	// New vue instance
 	var app = new Vue({
@@ -14865,7 +14881,7 @@
 	__vue_exports__ = __webpack_require__(79)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(80)
+	var __vue_template__ = __webpack_require__(100)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -14900,13 +14916,22 @@
 
 /***/ },
 /* 79 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+
+	var _keys = __webpack_require__(80);
+
+	var _keys2 = _interopRequireDefault(_keys);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	//
+	//
 	//
 	//
 	//
@@ -14927,41 +14952,106 @@
 
 	    data: function data() {
 	        return {
-	            tabs: [],
-	            activeBar: null
+	            tabs: {},
+	            activeTab: null,
+	            activeTabNumber: null,
+	            contentHeight: '0px',
+	            contentWidth: '0px'
 	        };
 	    },
 	    mounted: function mounted() {
 	        var _this = this;
 
-	        this.tabs = this.$children;
-	        this.activeBar = this.$refs.bar;
+	        this.$nextTick(function () {
+	            if ((0, _keys2.default)(_this.tabs).length && !_this.activeTab) {
+	                var firstTab = (0, _keys2.default)(_this.tabs)[0];
 
-	        setTimeout(function () {
-	            _this.tabs.forEach(function (tab) {
-	                if (tab.isActive == true) {
-	                    _this.$el.querySelector('#' + tab.id).click();
-	                }
-	            });
-	        }, 500);
+	                _this.selectTab(_this.tabs[firstTab]);
+	            }
+	        });
 	    },
 
 
+	    computed: {
+	        indicatorClasses: function indicatorClasses() {
+	            var toLeft = this.lastIndicatorNumber > this.activeTabNumber;
+
+	            this.lastIndicatorNumber = this.activeTabNumber;
+
+	            return {
+	                'md-to-right': !toLeft,
+	                'md-to-left': toLeft
+	            };
+	        }
+	    },
+
 	    methods: {
-	        selectTab: function selectTab(event, selectedTab) {
-	            this.tabs.forEach(function (tab) {
-	                tab.isActive = tab.title == selectedTab.title;
+	        getTabClass: function getTabClass(tab) {
+	            return {
+	                'md-active': this.activeTab && this.activeTab.id && this.activeTab.id === tab.id,
+	                'md-disabled': tab.disabled
+	            };
+	        },
+	        registerTab: function registerTab(tab) {
+	            this.tabs[tab.id] = tab;
+
+	            if (tab.selected) {
+	                this.selectTab(tab);
+	            }
+	        },
+	        selectTab: function selectTab(selectedTab) {
+	            this.activeTab = selectedTab;
+	            this.activeTabNumber = this.getTabIndex(selectedTab.id);
+
+	            this.calculatePosition();
+	        },
+	        getTabIndex: function getTabIndex(id) {
+	            var idList = (0, _keys2.default)(this.tabs);
+
+	            return idList.indexOf(id);
+	        },
+	        calculatePosition: function calculatePosition() {
+	            var _this2 = this;
+
+	            window.requestAnimationFrame(function () {
+	                _this2.calculateIndicatorPosition();
+	                _this2.calculateTabsWidthAndPosition();
+	                _this2.calculateContentHeight();
 	            });
+	        },
+	        calculateIndicatorPosition: function calculateIndicatorPosition() {
+	            if (this.$refs.tabHeader && this.$refs.tabHeader[this.activeTabNumber]) {
+	                var tabsWidth = this.$el.offsetWidth;
+	                var activeTab = this.$refs.tabHeader[this.getTabIndex(this.activeTab.id)];
+	                var left = activeTab.offsetLeft;
+	                var right = tabsWidth - left - activeTab.offsetWidth;
 
-	            // Move the active-bar
-	            var target = event.target;
-	            var paddingOffset = window.outerWidth < 768 ? 10 : 0;
-	            var scrollOffset = closest(this.activeBar, 'ul').scrollLeft;
-	            var offsetLeft = target.offsetLeft + scrollOffset;
-	            var width = target.offsetWidth;
+	                this.$refs.indicator.style.left = left + 'px';
+	                this.$refs.indicator.style.right = right + 'px';
+	            }
+	        },
+	        calculateTabsWidthAndPosition: function calculateTabsWidthAndPosition() {
+	            var width = this.$el.offsetWidth;
+	            var index = 0;
+	            this.contentWidth = width * this.activeTabNumber + 'px';
 
-	            this.activeBar.style.left = offsetLeft + 'px';
-	            this.activeBar.style.width = width + 'px';
+	            for (var tabId in this.tabs) {
+	                var tab = this.tabs[tabId];
+	                tab.$el.style.width = width + 'px';
+	                tab.$el.style.left = width * index + 'px';
+	                index++;
+	            }
+	        },
+	        calculateContentHeight: function calculateContentHeight() {
+	            var _this3 = this;
+
+	            this.$nextTick(function () {
+	                if ((0, _keys2.default)(_this3.tabs).length) {
+	                    var height = _this3.tabs[_this3.activeTab.id].$el.offsetHeight;
+
+	                    _this3.contentHeight = height + 'px';
+	                }
+	            });
 	        }
 	    }
 	};
@@ -14970,33 +15060,283 @@
 /* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = { "default": __webpack_require__(81), __esModule: true };
+
+/***/ },
+/* 81 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(82);
+	module.exports = __webpack_require__(13).Object.keys;
+
+/***/ },
+/* 82 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.2.14 Object.keys(O)
+	var toObject = __webpack_require__(83)
+	  , $keys    = __webpack_require__(85);
+
+	__webpack_require__(99)('keys', function(){
+	  return function keys(it){
+	    return $keys(toObject(it));
+	  };
+	});
+
+/***/ },
+/* 83 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.13 ToObject(argument)
+	var defined = __webpack_require__(84);
+	module.exports = function(it){
+	  return Object(defined(it));
+	};
+
+/***/ },
+/* 84 */
+/***/ function(module, exports) {
+
+	// 7.2.1 RequireObjectCoercible(argument)
+	module.exports = function(it){
+	  if(it == undefined)throw TypeError("Can't call method on  " + it);
+	  return it;
+	};
+
+/***/ },
+/* 85 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+	var $keys       = __webpack_require__(86)
+	  , enumBugKeys = __webpack_require__(98);
+
+	module.exports = Object.keys || function keys(O){
+	  return $keys(O, enumBugKeys);
+	};
+
+/***/ },
+/* 86 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var has          = __webpack_require__(87)
+	  , toIObject    = __webpack_require__(88)
+	  , arrayIndexOf = __webpack_require__(91)(false)
+	  , IE_PROTO     = __webpack_require__(95)('IE_PROTO');
+
+	module.exports = function(object, names){
+	  var O      = toIObject(object)
+	    , i      = 0
+	    , result = []
+	    , key;
+	  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
+	  // Don't enum bug & hidden keys
+	  while(names.length > i)if(has(O, key = names[i++])){
+	    ~arrayIndexOf(result, key) || result.push(key);
+	  }
+	  return result;
+	};
+
+/***/ },
+/* 87 */
+/***/ function(module, exports) {
+
+	var hasOwnProperty = {}.hasOwnProperty;
+	module.exports = function(it, key){
+	  return hasOwnProperty.call(it, key);
+	};
+
+/***/ },
+/* 88 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// to indexed object, toObject with fallback for non-array-like ES3 strings
+	var IObject = __webpack_require__(89)
+	  , defined = __webpack_require__(84);
+	module.exports = function(it){
+	  return IObject(defined(it));
+	};
+
+/***/ },
+/* 89 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// fallback for non-array-like ES3 and non-enumerable old V8 strings
+	var cof = __webpack_require__(90);
+	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
+	  return cof(it) == 'String' ? it.split('') : Object(it);
+	};
+
+/***/ },
+/* 90 */
+/***/ function(module, exports) {
+
+	var toString = {}.toString;
+
+	module.exports = function(it){
+	  return toString.call(it).slice(8, -1);
+	};
+
+/***/ },
+/* 91 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// false -> Array#indexOf
+	// true  -> Array#includes
+	var toIObject = __webpack_require__(88)
+	  , toLength  = __webpack_require__(92)
+	  , toIndex   = __webpack_require__(94);
+	module.exports = function(IS_INCLUDES){
+	  return function($this, el, fromIndex){
+	    var O      = toIObject($this)
+	      , length = toLength(O.length)
+	      , index  = toIndex(fromIndex, length)
+	      , value;
+	    // Array#includes uses SameValueZero equality algorithm
+	    if(IS_INCLUDES && el != el)while(length > index){
+	      value = O[index++];
+	      if(value != value)return true;
+	    // Array#toIndex ignores holes, Array#includes - not
+	    } else for(;length > index; index++)if(IS_INCLUDES || index in O){
+	      if(O[index] === el)return IS_INCLUDES || index || 0;
+	    } return !IS_INCLUDES && -1;
+	  };
+	};
+
+/***/ },
+/* 92 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 7.1.15 ToLength
+	var toInteger = __webpack_require__(93)
+	  , min       = Math.min;
+	module.exports = function(it){
+	  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+	};
+
+/***/ },
+/* 93 */
+/***/ function(module, exports) {
+
+	// 7.1.4 ToInteger
+	var ceil  = Math.ceil
+	  , floor = Math.floor;
+	module.exports = function(it){
+	  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+	};
+
+/***/ },
+/* 94 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var toInteger = __webpack_require__(93)
+	  , max       = Math.max
+	  , min       = Math.min;
+	module.exports = function(index, length){
+	  index = toInteger(index);
+	  return index < 0 ? max(index + length, 0) : min(index, length);
+	};
+
+/***/ },
+/* 95 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var shared = __webpack_require__(96)('keys')
+	  , uid    = __webpack_require__(97);
+	module.exports = function(key){
+	  return shared[key] || (shared[key] = uid(key));
+	};
+
+/***/ },
+/* 96 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var global = __webpack_require__(12)
+	  , SHARED = '__core-js_shared__'
+	  , store  = global[SHARED] || (global[SHARED] = {});
+	module.exports = function(key){
+	  return store[key] || (store[key] = {});
+	};
+
+/***/ },
+/* 97 */
+/***/ function(module, exports) {
+
+	var id = 0
+	  , px = Math.random();
+	module.exports = function(key){
+	  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+	};
+
+/***/ },
+/* 98 */
+/***/ function(module, exports) {
+
+	// IE 8- don't enum bug keys
+	module.exports = (
+	  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+	).split(',');
+
+/***/ },
+/* 99 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// most Object methods by ES6 should accept primitives
+	var $export = __webpack_require__(11)
+	  , core    = __webpack_require__(13)
+	  , fails   = __webpack_require__(22);
+	module.exports = function(KEY, exec){
+	  var fn  = (core.Object || {})[KEY] || Object[KEY]
+	    , exp = {};
+	  exp[KEY] = exec(fn);
+	  $export($export.S + $export.F * fails(function(){ fn(1); }), 'Object', exp);
+	};
+
+/***/ },
+/* 100 */
+/***/ function(module, exports, __webpack_require__) {
+
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
 	    staticClass: "md-tabs"
 	  }, [_c('ul', [_vm._l((_vm.tabs), function(tab) {
 	    return _c('li', {
-	      class: {
-	        'active': tab.isActive
-	      },
+	      ref: "tabHeader",
+	      refInFor: true,
+	      class: _vm.getTabClass(tab),
 	      attrs: {
-	        "id": tab.id
+	        "id": tab.id,
+	        "disabled": tab.disabled
 	      }
 	    }, [_c('a', {
+	      directives: [{
+	        name: "ripple",
+	        rawName: "v-ripple"
+	      }],
 	      attrs: {
 	        "href": tab.href
 	      },
 	      on: {
 	        "click": function($event) {
-	          _vm.selectTab($event, tab)
+	          _vm.selectTab(tab)
 	        }
 	      }
 	    }, [_vm._v(_vm._s(tab.title))])])
 	  }), _vm._v(" "), _c('span', {
-	    ref: "bar",
-	    staticClass: "md-tabs-bar"
+	    ref: "indicator",
+	    staticClass: "md-tabs-indicator",
+	    class: _vm.indicatorClasses
 	  })], 2), _vm._v(" "), _c('div', {
-	    staticClass: "md-tabs-details"
-	  }, [_vm._t("default")], 2)])
+	    staticClass: "md-tabs-content",
+	    style: ({
+	      height: _vm.contentHeight
+	    })
+	  }, [_c('div', {
+	    staticClass: "md-tabs-wrapper",
+	    style: ({
+	      transform: ("translate3D(-" + _vm.contentWidth + ", 0, 0)")
+	    })
+	  }, [_vm._t("default")], 2)])])
 	},staticRenderFns: []}
 	if (false) {
 	  module.hot.accept()
@@ -15006,17 +15346,17 @@
 	}
 
 /***/ },
-/* 81 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_exports__, __vue_options__
 	var __vue_styles__ = {}
 
 	/* script */
-	__vue_exports__ = __webpack_require__(82)
+	__vue_exports__ = __webpack_require__(102)
 
 	/* template */
-	var __vue_template__ = __webpack_require__(83)
+	var __vue_template__ = __webpack_require__(103)
 	__vue_options__ = __vue_exports__ = __vue_exports__ || {}
 	if (
 	  typeof __vue_exports__.default === "object" ||
@@ -15050,7 +15390,7 @@
 
 
 /***/ },
-/* 82 */
+/* 102 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15072,9 +15412,7 @@
 	    },
 
 	    data: function data() {
-	        return {
-	            isActive: false
-	        };
+	        return {};
 	    },
 
 
@@ -15088,22 +15426,22 @@
 	    },
 
 	    mounted: function mounted() {
-	        this.isActive = this.selected;
+	        this.parentTabs = getClosestVueParent(this.$parent, 'md-tabs');
+
+	        if (!this.parentTabs) {
+	            throw new Error('You must wrap the md-tab in a md-tabs');
+	        }
+
+	        this.parentTabs.registerTab(this);
 	    }
 	};
 
 /***/ },
-/* 83 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
 	  return _c('div', {
-	    directives: [{
-	      name: "show",
-	      rawName: "v-show",
-	      value: (_vm.isActive),
-	      expression: "isActive"
-	    }],
 	    staticClass: "md-tab"
 	  }, [_vm._t("default")], 2)
 	},staticRenderFns: []}

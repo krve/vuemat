@@ -1,5 +1,5 @@
 <template>
-    <div class="md-tab" v-show="isActive">
+    <div class="md-tab">
         <slot></slot>
     </div>
 </template>
@@ -12,9 +12,7 @@
         },
 
         data() {
-            return {
-                isActive: false,
-            }
+            return {}
         },
 
         computed: {
@@ -28,7 +26,13 @@
         },
 
         mounted() {
-            this.isActive = this.selected;
+            this.parentTabs = getClosestVueParent(this.$parent, 'md-tabs');
+
+            if (!this.parentTabs) {
+                throw new Error('You must wrap the md-tab in a md-tabs');
+            }
+
+            this.parentTabs.registerTab(this);
         }
     }
 </script>
